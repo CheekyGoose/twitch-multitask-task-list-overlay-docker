@@ -1,14 +1,10 @@
-FROM node:20-slim
-
+FROM node:20-slim AS builder
 RUN npm install -g pnpm
-
 WORKDIR /app
-
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install
-
 COPY . .
+RUN pnpm install && pnpm run build
 
-EXPOSE 5173
-
-CMD ["pnpm", "run", "dev", "--", "--host", "0.0.0.0"]
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
