@@ -1,14 +1,20 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-	build: {
-		outDir: "dist",
-		lib: {
-			entry: "src/index.js",
-			name: "taskBot",
-			formats: ["iife"],
-			fileName: "taskBot",
+	server: {
+		host: '0.0.0.0',
+		port: 5173,
+		strictPort: true,
+		watch: {
+			usePolling: true,
 		},
 	},
-	publicDir: false,
-});
+	build: {
+		lib: {
+			entry: resolve(__dirname, 'main.js'),
+			name: 'MyLib',
+			fileName: 'my-lib',
+		},
+	},
+})
