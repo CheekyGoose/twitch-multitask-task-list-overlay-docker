@@ -1,3 +1,5 @@
+## This is a Dockerized version of the original tool by [jujoco](https://github.com/jujoco). Check out the source here: https://github.com/jujoco/twitch-multitask-task-list-overlay.
+
 <div align="center">
 <img src="./images/live-sample.png" style="max-width: 800px;">
 <br >
