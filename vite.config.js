@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
 
 export default defineConfig({
 	server: {
@@ -8,13 +7,6 @@ export default defineConfig({
 		strictPort: true,
 		watch: {
 			usePolling: true,
-		},
-	},
-	build: {
-		lib: {
-			entry: resolve(__dirname, 'main.js'),
-			name: 'MyLib',
-			fileName: 'my-lib',
-		},
-	},
+		}
+	}
 })
